@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/principale/page2.css">
+    <link rel="stylesheet" href="/user/Ancien/AncienInscription.css">
+    <link rel="stylesheet" href="Ajout-spot.css">
+    <script type="module" src="ajout-creneau.js"></script>
+    <title>Ajout creneau</title>
+</head>
+<body class="imagedefond">
+    <form>
+        <label for="datetime">Date et heure</label>
+        <input type="datetime-local" id="datetime" name="datetime" required>
+    
+
+            <label for="spot">Spot</label>
+        <div id="selectSpot">
+            <select name="spots" id="spots-liste" required>
+                <option value="">--Choisissez un spot--</option>
+            </select>
+            <!-- <input type="text" id="spot" name="spot" placeholder="Choisissez un spot" required> -->
+            <button type="button" onclick="document.location='/ajout-spot/Ajout-spot.html'">Ajouter un spot</button>
+        </div>  
+    
+		<input type="submit" value="Ajouter le créneau" id="submitCreneau">
+    </form>
+    
+    
+    
+</body>
+</html>

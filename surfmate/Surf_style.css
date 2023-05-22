@@ -1,0 +1,173 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* .imagedefond{
+    background: url("/images/vagues.jpg") no-repeat center;
+    background-color: rgb(255, 255, 255);
+    background-size: cover;
+    position: relative;
+    background-position: bottom;
+    background-attachment: fixed;
+    height: 100%;
+} */
+/* html, body, .background {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+} */
+
+html {
+  width: 100%;
+}
+
+body {
+  background: url("/images/vagues.jpg") no-repeat center;
+  background-color: rgb(255, 255, 255);
+  background-size: cover;
+  position: relative;
+  background-position: bottom;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  height: 100vh;
+  /* min-height: 100%; */
+  flex-direction: column;
+  width: 100%;
+}
+
+/* span.actual-text {
+  font-size: 90px;
+} */
+
+/* === removing default button style ===*/
+.button {
+    height: auto;
+    background: transparent;
+    padding: 0;
+    border: none;
+  }
+
+  
+  /* button styling */
+  .button {
+    --border-right: 9px;
+    --text-stroke-color: white;
+    --animation-color: #37d4ff;
+    --fs-size: 5em;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size: var(--fs-size);
+    font-family: "Arial";
+    position: relative;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 2.5px var(--text-stroke-color);
+    /* display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center; */
+    cursor: pointer;
+  }
+  /* this is the text, when you hover on button */
+  .hover-text {
+    position: absolute;
+    box-sizing: border-box;
+    content: attr(data-text);
+    color: var(--animation-color);
+    width: 0%;
+    inset: 0;
+    border-right: var(--border-right) solid var(--animation-color);
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-text-stroke: 1px var(--animation-color);
+  }
+  /* hover */
+  .button:hover .hover-text {
+    width: 100%;
+    filter: drop-shadow(0 0 23px var(--animation-color))
+  }
+
+h1 span {
+  position: relative;
+  display: inline-block;
+}
+
+p {
+    font-size: 2em;
+    font-family: "Arial";
+    color: white;
+    text-align: center;
+    /* margin-top: 0;
+    margin-bottom: 0; */
+    text-transform: capitalize;
+    font-variant: small-caps;
+  }
+
+.lignes {
+  position: absolute;
+  top: 6%;
+  left: 5%;
+}
+.l1 {
+    width: 15em;
+    height: 0.2em;
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+.l2 {
+    width: 8em;
+    height: 0.2em;
+    background: #f1f1f1;
+    border-radius: 5px;
+    position: relative;
+    top: 20px;
+}
+
+.logo {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  width: 4em;
+  height: 4em;
+  cursor: pointer;
+}
+.medias {
+  list-style-type: none;
+  position: absolute;
+  right: 3.3%;
+  top: 80%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.bulle {
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  border: 1px solid #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  background: #f1f1f1;
+  cursor: pointer;
+  position: relative;
+}
+
+.logo-medias {
+  width: 2.5em;
+  height: 2.5em;
+}

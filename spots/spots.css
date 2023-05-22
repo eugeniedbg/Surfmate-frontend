@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+
+.spots lieu, .creneaux reservation, .publications post, .mesPublications post, .mesCreneaux reservation {
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 40%;
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 0.8em;
+    text-align: center;
+    border: 0.16em solid rgba(255, 255, 255, 0.2);
+    border-radius: 1.5em;
+    text-decoration: none;
+    font-weight: 300;
+    color: black;
+    transition: all 0.2s;
+    background-color: rgba(255, 255, 255, 0.2);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+    text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(2px);
+  }
+
+h1, h2 {
+    text-align: center;
+    color: black;
+}
+
+
+.imagedefond{
+  background: url("/images/XDA_Photo_2021_01.jpg") no-repeat center;
+  background-color: rgb(255, 255, 255);
+  background-size: cover;
+  position: relative;
+  background-position: bottom;
+  background-attachment: fixed;
+  height: 100%;
+  margin-top: 4.25em;
+}
+
+.avis {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+

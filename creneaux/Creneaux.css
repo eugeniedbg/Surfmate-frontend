@@ -1,0 +1,105 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.imagedefond{
+    background: url("/images/20120813-XDA_7793-Copie\ 1-1500-\(NIKON\ D300\)-NS.jpg") no-repeat center;
+    background-color: rgb(255, 255, 255);
+    background-size: cover;
+    position: relative;
+    background-position: top;
+    background-attachment: fixed;
+    height: 100%;
+  }
+
+.creneaux .creneauxArchives {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Créneaux archivés */
+.creneauxArchives reservation, .creneaux reservation {
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 40%;
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 0.8em;
+    text-align: center;
+    border: 0.16em solid rgba(255, 255, 255, 0.2);
+    border-radius: 1.5em;
+    text-decoration: none;
+    font-weight: 300;
+    color: black;
+    transition: all 0.2s;
+    background-color: rgba(255, 255, 255, 0.2);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+    text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(2px);
+  }
+
+
+.boutonAlignement {
+    margin-top: 4.75em;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    /* padding-top: 0em; */
+    text-align: left; 
+    padding: auto;
+  }
+
+h2 {
+    margin: auto;
+    border: 2px solid #f1f1f1;
+    outline: none;
+    background: transparent;
+    backdrop-filter: blur(2px);
+    font-size: 30px;
+    padding: 20px;
+    width: 300px;
+    color: #f1f1f1;
+    /* cursor: pointer; */
+}
+
+.hidden {
+    display: none;
+  }
+
+h2#toggleArchivesButton {
+    /* margin-left: auto;
+    margin-right: auto; */
+    bottom: 10em;
+    margin-bottom: 1em;
+    border: 2px solid #f1f1f1;
+    outline: none;
+    background: transparent;
+    font-size: 30px;
+    padding: 20px;
+    min-width: 40%;
+    color: #f1f1f1;
+    cursor: pointer;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 9px;
+    
+}
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+}
+

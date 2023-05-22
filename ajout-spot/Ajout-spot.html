@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/principale/page2.css">
+    <link rel="stylesheet" href="/user/Ancien/AncienInscription.css">
+	<title>Formulaire d'ajout de spot</title>
+	<script type="module" src="Ajout-spot.js"></script>
+</head>
+<body class="imagedefond">
+	<form onsubmit="redirectToPreviousPage()">
+		<label for="nom">Nom :</label>
+		<input type="text" id="nom" name="nom" required>
+
+		<label for="ville">Ville :</label>
+		<input type="ville" id="ville" name="ville" required>
+		<div id="autocomp"></div>
+		<div id="villeErreur"></div>
+		<div id="villeValide"></div>
+
+		<label for="pays">Pays :</label>
+		<input type="pays" id="pays" name="pays" required>
+        <div id="paysErreur"></div>
+		<div id="paysValide"></div>
+
+        <label for="GPS">Coordonnées GPS (optionnel) :</label>
+		<input type="GPS" id="GPS" name="GPS">
+
+
+		<input type="submit" value="Ajouter un spot" id="submitSpot">
+	</form>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vérification de la ville et du pays</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+  <h1>Vérification de la ville et du pays</h1>
+  <form id="cityForm">
+    <label for="cityInput">Ville :</label>
+    <input type="text" id="cityInput" required>
+    <br>
+    <label for="countryInput">Pays :</label>
+    <input type="text" id="countryInput" required>
+    <br>
+    <input type="submit" value="Vérifier">
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    // Écouteur d'événement pour le formulaire
+    $('#cityForm').submit(function(event) {
+      event.preventDefault(); // Empêche le rechargement de la page
+
+      var city = $('#cityInput').val();
+      var country = $('#countryInput').val();
+
+      // Requête à l'API OpenCage Geocoder
+      var apiKey = '6c9ff0e6d70c48c5afe5d70efe5c79c4';
+      var url = 'https://api.opencagedata.com/geocode/v1/json?q=' + city + ',' + country + '&key=' + apiKey;
+
+      $.ajax({
+        url: url,
+        method: 'GET',
+        success: function(response) {
+          if (response.results.length > 0) {
+            var resultCountry = response.results[0].components.country;
+            var resultCity = response.results[0].components.city;
+
+            if (resultCity.toLowerCase() === city.toLowerCase() && resultCountry.toLowerCase() === country.toLowerCase()) {
+              $('#result').html('La ville ' + city + ' existe dans le pays ' + resultCountry + '.');
+            } else {
+              $('#result').html('La ville ' + city + ' n\'existe pas dans le pays ' + country + '.');
+            }
+          } else {
+            $('#result').html('Erreur lors de la vérification de la ville.');
+          }
+        },
+        error: function() {
+          $('#result').html('Erreur lors de la vérification de la ville.');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

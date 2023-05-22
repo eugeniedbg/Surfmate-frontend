@@ -1,0 +1,60 @@
+html {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+body {
+    background-image: url("../images/homme-surf-plage.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/*blurry buttons*/
+.blurryButton {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+    margin: 1em;
+    width: auto;
+    display: block;
+    padding: 0.8em;
+    text-align: center;
+    border: 0.15em solid white;
+    border-radius: 2em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-weight: 300;
+    color: white;
+    transition: all 0.2s;
+    background-color: transparent;
+    /* background-image: ; */
+    text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+    text-transform: uppercase;
+    
+    
+  }
+  
+  .blurryButton:hover {
+    border-color: rgba(255, 255, 255, 0);
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+    cursor: pointer;
+  }
+
+  .boutonAlignement {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    /* padding-top: 0em; */
+    text-align: center; 
+    padding: auto;
+    width: 100%;
+  } 

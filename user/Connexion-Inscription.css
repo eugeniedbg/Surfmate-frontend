@@ -1,0 +1,144 @@
+.imagedefond{
+    background: url("/images/vagues-modified.jpg") no-repeat center;
+    background-color: rgb(255, 255, 255);
+    background-size: cover;
+    position: relative;
+    background-position: bottom;
+    background-attachment: fixed;
+    height: 100%;
+  }
+
+
+/* Connexion/Inscription */
+button.btn {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 0;
+    background-color: transparent;
+    color: #94f7e6;
+    border: 1px solid transparent;
+    transition: border-color .3s;
+}
+
+button.btn:hover {
+    border-color: #94f7e6;
+}
+
+.sectionLoginRegister {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* margin: 4.25em 0; */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: -1;
+
+}
+/* .sectionLoginRegister.show {
+    backdrop-filter: blur(15px);
+    z-index: 1;
+} */
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: auto;
+}
+
+.form-wrapper .card {
+    width: 360px;
+    padding: 20px;
+    background-color: rgb(0 0 0 /35%);
+    /* visibility: hidden;
+    opacity: 0; */
+    transition: opacity .3s, visibility .3s;
+}
+
+/* .card.show {
+    visibility: visible;
+    opacity: 1;
+} */
+
+.card-header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 30px 20px 0;
+    font-size: 1.1rem;
+    color: #94f7e6;
+    box-shadow: 2px 3px 8px #d3f7ff71;
+    border-radius: 50px;
+}
+
+.card-header .form-header {
+    flex: 50%;
+    text-align: center;
+    padding: 10px 0;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.card-header .form-header.active {
+    box-shadow: inset 1px 1px 2px rgb(19 210 177 / 55%), inset -1px 1px 2px rgb(19 210 177 / 55%), inse -1px -1px 2px rgb(19 210 177 / 55%), inset 1px -1px 2px rgb(19 210 177 / 55%), 
+        inset 1px -1px 2px rgb(19 210 177 / 55%);
+    border-color: #94f7e6;
+    transition: border-color .3s, box-shadow 0.3s;
+}
+
+.card-body {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 40px 0;
+    text-align: center;
+}
+
+form {
+    flex: 0 0 100%;
+}
+
+.toggleForm {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.form-control {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgb(134 255 249 /65%);
+    background: none;
+    outline: none;
+    padding: 10px 5px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.form-control::placeholder {
+    color: rgb(134 255 249 /65%);
+}
+
+.formButton {
+    border: 1px solid transparent;
+    padding: 1rem 3rem;
+    background-color: #94f7e6;
+    border-radius: 50px;
+    margin-top: 1rem;
+    font-size: 1rem;
+    transition: transform .3s, box-shadow .3s;
+}
+
+.formButton:hover {
+    box-shadow: 3px 5px 15px #94f7e6;
+    transform: translateY(-5px);
+}
+

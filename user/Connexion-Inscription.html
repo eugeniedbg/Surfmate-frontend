@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Connexion-Inscription.css">
+    <!-- <script type="module" src="../user/connexion.js"></script> -->
+    <script type="module" src="./connexion-inscription.js"></script>
+
+    <title>Document</title>
+</head>
+<body class="imagedefond">
+    <section class="sectionLoginRegister">
+        <div class="sec-container">
+            <div class="form-wrapper">
+                <div class="card">
+                    <div class="card-header">
+                        <div id="forLogin" class="form-header active">Se connecter</div>
+                        <div id="forRegister" class="form-header">S'inscrire</div>
+                    </div>
+                    <div class="card-body" id="formContainer">
+                        <form id="loginForm">
+                            <input type="email" id="emailLogin" name="email" required class="form-control" placeholder="Entrez votre adresse mail">
+
+                            <input type="password" id="passwordLogin" name="password" required class="form-control" placeholder="Entrez votre mot de passe">
+
+                            <button class="formButton" id="submitLogin">Connexion</button>
+                        </form>
+                        <form id="registerForm" class="toggleForm">
+                            <input type="pseudo" id="pseudo" name="pseudo" class="form-control" placeholder="Entrez votre pseudo" required>
+                            <div id="pseudoErreur"></div>
+		                    <div id="pseudoValide"></div>
+
+                            <input type="email" id="emailSignup" name="email" class="form-control" placeholder="Entrez votre adresse mail" required>
+                            <div id="emailErreur"></div>
+                            <div id="emailValide"></div>
+
+                            <input type="password" id="passwordSignup" name="password" class="form-control" placeholder="Entrez votre mot de passe" required>
+
+                            <input type="password" id="password2Signup" name="password2" class="form-control" placeholder="Confirmez votre mot de passe" required>
+                            <div id="passwordErreur"></div>
+
+                            <button class="formButton" id="submitSignup">Inscription</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+</body>
+</html>

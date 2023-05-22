@@ -1,0 +1,17 @@
+#selectSpot {
+    display: flex;
+    align-items: center;
+    flex-basis: auto;
+
+
+}
+
+#selectSpot #spots-liste {
+    margin-right: 10px; /* Ajouter un espacement entre l'input et le bouton */
+    width: 100%;
+    align-items: center;
+    flex-shrink: 0;
+}
+#selectSpot button {
+    min-width: 15em;
+}

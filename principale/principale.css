@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 9px;
+    
+}
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+} 
+
+body {
+    font-family: 'Poppins';
+    /*background: url('/images/vagues.jpg') no-repeat; /* ou vagues-modified.jpg ?*/
+    /* background-size: cover; */
+    /* background-attachment: fixed; */
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.title {
+    text-transform: capitalize;
+    margin: 70px 0;
+    font-weight: bold;
+    color: #29d9d5;
+    position: relative;
+    margin-left:15px;
+    font-size: 26px;
+
+}
+.title::after {
+    position: absolute;
+    left: -15px;
+    content: "";
+    height: 100%;
+    background-color: #fff;
+    width: 5px;
+}
+
+#home {
+    margin-top: 4.25em;
+    /* margin-bottom: 1em; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding-left: 0;
+    /* padding-bottom: 2em; */
+    /* padding-top: 2em; */
+    box-sizing: border-box;
+    background: url('/images/vagueslumdown.jpg') no-repeat center; /* ou vagues-modified.jpg ?*/
+    background-size: cover;
+    /* background-attachment: fixed; */
+}
+
+
+
+/*FIND YOUR SURF BUDDIES*/
+.divv {
+    display: block;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    font-size: 2em;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-shadow: 0 0.2em 0.04em rgba(0, 0, 0, 0.35);
+    
+}
+
+
+/*PUBLICATION POST*/
+/* .publications {
+    margin-top: -3em;
+} */
+
+.publications post {
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 55%;
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+    text-align: center;
+    border: 0.16em solid rgba(255, 255, 255, 0.2);
+    border-radius: 1.5em; 
+    text-decoration: none;
+    font-weight: 300;
+    color: black;
+    transition: all 0.2s;
+    background-color: rgba(255, 255, 255, 0.2); /*  ou(85, 85, 85, 0.2) / 0, 255, 251, 0.2*/
+    background-image: linear-gradient(rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.2));
+    text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(2px);
+}
+
+h2.titre_haut {
+    color: white;
+}
+
+h2 {
+    margin-top: 1rem;
+    padding-top: 0.5em;
+    text-align: center;
+    color: black;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+
+
+
+/*Destination CSS*/
+#popular-destination {
+    padding: 0 10% ;
+    margin-top: 0;
+    margin-bottom: 50px;
+    /* height: 90vh; */
+    background-color: black;
+
+}
+#popular-destination .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    gap: 32px;
+}
+#popular-destination .content .box {
+    overflow: hidden;
+    position: relative;
+    height: 250px;
+    transition: 0.5s;
+}
+#popular-destination .content .box img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.box .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    align-items: center;
+    transform: translateX(100%);
+    transition: 0.5s;
+}
+.box .content  h4 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.box .content p {
+    padding: 2px;
+    font-size: 12px;
+}
+.box .content p:nth-child(3){
+    margin-bottom: 25px;
+}
+.box .content a {
+    margin-top: 60px;
+    padding: 10px 60px;
+    border: 2px solid #29d9d5;
+    color: #29d9d5;
+    font-weight: bold;
+}
+.box:hover {
+    box-shadow: 0 0 10px #29d9d5;
+}
+.box:hover .content {
+    transform: translateX(0);
+}
+
+
+
+/* Contact CSS */
+#contact {
+    background-color: black;
+    padding: 0 10%;
+    margin-bottom: 50px;
+    height: 90vh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#contact form {
+    background-color: #fff;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.left-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.left-right .left , .left-right .right  {
+    display: flex;
+    flex-direction: column;
+    width: 49%;
+}
+
+#contact form label {
+    font-size: 14px;
+    padding: 10px 0;
+    font-weight: 600
+}
+#contact form input {
+    padding: 8px;
+    outline: 0;
+    border: 1px solid #999;
+}
+
+textarea {
+    height: 150px;
+    resize: none;
+    outline: 0;
+    width: 100%;
+    padding: 10px;
+}
+#contact form input:focus , textarea:focus {
+    border: 1px solid #29d9d5;
+}
+iframe {
+    height: 150px;
+    width: 100%;
+}
+#contact button {
+    width: fit-content;
+    padding: 8px 40px;
+    background-color: #111;
+    border: 1px solid #111;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.5s;
+}
+#contact button:hover {
+    letter-spacing: 1px;
+}
+
+footer {
+    width: 100%;
+    background-color: #222;
+    padding: 10px 0;
+    font-size: 14px;
+    text-align: center;
+    
+}
+footer p {
+    color: #fff;
+}
+footer p span {
+    color: #29d9d5;
+}
+.responsive-menu {
+    display: none;
+}

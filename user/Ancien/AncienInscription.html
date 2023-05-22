@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/principale/page2.css">
+    <link rel="stylesheet" href="/user/Inscription.css">
+	<title>Formulaire de création de compte</title>
+	<script type="module" src="/user/inscription.js"></script>
+</head>
+<body class="imagedefond">
+	<form>
+		<label for="pseudo">Pseudo :</label>
+		<input type="text" id="pseudo" name="pseudo" placeholder="Pseudo..." required>
+		<div id="pseudoErreur"></div>
+		<div id="pseudoValide"></div>
+
+		<label for="email">Adresse e-mail :</label>
+		<input type="email" id="email" name="email" placeholder="Email..." required>
+		<div id="emailErreur"></div>
+		<div id="emailValide"></div>
+
+		<label for="password">Mot de passe :</label>
+		<input type="password" id="password" name="password" placeholder="Mot de passe..." required>
+
+		<label for="password2">Confirmer le mot de passe :</label>
+		<input type="password" id="password2" name="password2" placeholder="Confirmation du mot de passe..." required>
+		<div id="passwordErreur"></div>
+		
+		<input type="submit" value="Créer un compte" id="submitSignup">
+	</form>
+</body>
+</html>

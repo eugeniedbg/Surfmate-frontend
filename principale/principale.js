@@ -1,6 +1,9 @@
 import { afficherNavBarBoutons } from "../app.js";
 
-const reponse = await fetch('http://localhost:3001/api/publication/?populate=userId')
+// add no-corse policy
+const reponse = await fetch('http://localhost:3001/api/publication/?populate=userId', {
+        mode: 'no-cors'
+    })
 const publications = await reponse.json();
 
 async function afficherPublications(publications) {

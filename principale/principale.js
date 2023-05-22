@@ -1,7 +1,7 @@
 import { afficherNavBarBoutons } from "../app.js";
 
 // add no-corse policy
-const reponse = await fetch('http://localhost:3001/api/publication/?populate=userId', {
+const reponse = await fetch('https://surfmate-backend.onrender.com/api/publication/?populate=userId', {
         mode: 'no-cors'
     })
 const publications = await reponse.json();

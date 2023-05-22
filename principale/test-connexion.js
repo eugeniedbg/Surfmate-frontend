@@ -1,6 +1,6 @@
 import { afficherNavBarBoutons, responsiveNavBar } from "../app.js";
 
-const reponse = await fetch('http://localhost:3001/api/publication/?populate=userId')
+const reponse = await fetch('https://surfmate-backend.onrender.com/api/publication/?populate=userId')
 const publications = await reponse.json();
 
 async function afficherPublications(publications) {

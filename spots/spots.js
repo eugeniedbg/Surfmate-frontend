@@ -2,7 +2,7 @@ import { afficherNavBarBoutons, responsiveNavBar } from "../app.js";
 import { afficherAvis, masquerAvis } from "./avisSpot.js";
 
 
-const reponse = await fetch('http://localhost:3001/api/spot/');
+const reponse = await fetch('https://surfmate-backend.onrender.com/api/spot/');
 const spots = await reponse.json();
 
 function afficherSpots(spots) {

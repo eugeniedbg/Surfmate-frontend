@@ -1,5 +1,5 @@
 
-//const reponse = await fetch('http://localhost:3001/api/spot/');
+//const reponse = await fetch('https://surfmate-backend.onrender.com/api/spot/');
 
 //Vérifier que le psuedo n'est pas déjà utilisé
 const pseudo = document.getElementById("pseudo");
@@ -96,7 +96,7 @@ boutonSubmit.addEventListener("click", async function (event) {
         email: email.value,
         password: password.value
     };
-    const reponse = await fetch('http://localhost:3001/api/auth/signup', {
+    const reponse = await fetch('https://surfmate-backend.onrender.com/api/auth/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -113,14 +113,14 @@ boutonSubmit.addEventListener("click", async function (event) {
 });
 
 async function checkPseudo(){
-    const reponse = await fetch(`http://localhost:3001/api/auth/signup/pseudoLibre/${pseudo.value}`);
+    const reponse = await fetch(`https://surfmate-backend.onrender.com/api/auth/signup/pseudoLibre/${pseudo.value}`);
     const pseudoLibre = await reponse.json();
     //pseudoLibre attendu : true ou false
     return pseudoLibre.message
 }
 
 async function checkEmail(){
-    const reponse = await fetch(`http://localhost:3001/api/auth/signup/emailLibre/${email.value}`);
+    const reponse = await fetch(`https://surfmate-backend.onrender.com/api/auth/signup/emailLibre/${email.value}`);
     const emailLibre = await reponse.json();
     //pseudoLibre attendu : true ou false
     return emailLibre.message

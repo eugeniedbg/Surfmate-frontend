@@ -1,6 +1,6 @@
 import { afficherNavBarBoutons, responsiveNavBar } from "../app.js";
 
-const reponse = await fetch('http://localhost:3001/api/creneau');
+const reponse = await fetch('https://surfmate-backend.onrender.com/api/creneau');
 const creneaux = await reponse.json()
 
 
@@ -49,7 +49,7 @@ async function afficherCreneaux(creneaux) {
 
         const spotId = reservation.spotId;
 
-        const spotReponse = await fetch(`http://localhost:3001/api/spot/${spotId}`);
+        const spotReponse = await fetch(`https://surfmate-backend.onrender.com/api/spot/${spotId}`);
         const spot = await spotReponse.json();
         const spotElement = document.createElement('spot');
         const nomElement = document.createElement('h3');
@@ -68,7 +68,7 @@ async function afficherCreneaux(creneaux) {
         };
 
         const userIdElement = reservation.userId;
-        const userReponse = await fetch(`http://localhost:3001/api/auth/${userIdElement}`);
+        const userReponse = await fetch(`https://surfmate-backend.onrender.com/api/auth/${userIdElement}`);
         const user = await userReponse.json();
         const pseudoElement = document.createElement('h3');
         pseudoElement.innerText = user.pseudo;

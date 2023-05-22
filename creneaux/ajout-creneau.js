@@ -1,7 +1,7 @@
 import { redirectToPreviousPage } from "../app.js";
 
 // Récupérer tous les spots de la base de données
-const reponse = await fetch('http://localhost:3001/api/spot/');
+const reponse = await fetch('https://surfmate-backend.onrender.com/api/spot/');
 const spots = await reponse.json();
 
 
@@ -71,7 +71,7 @@ boutonSubmit.addEventListener("click", async function (event) {
         spotId: spots.value,
         userId: localStorage.getItem("userId")
     };
-    const reponse = await fetch('http://localhost:3001/api/creneau', {
+    const reponse = await fetch('https://surfmate-backend.onrender.com/api/creneau', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

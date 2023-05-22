@@ -35,7 +35,7 @@ form.addEventListener('input', (event) => {
 
 
 
-//const reponse = await fetch('http://localhost:3001/api/spot/');
+//const reponse = await fetch('https://surfmate-backend.onrender.com/api/spot/');
 
 // Vérifier que la ville existe
 const ville = document.getElementById("ville");
@@ -115,7 +115,7 @@ boutonSubmit.addEventListener("click", async function (event) {
         pays: pays.value,
         GPS: GPS?.value,
     };
-    const reponse = await fetch('http://localhost:3001/api/spot', {
+    const reponse = await fetch('https://surfmate-backend.onrender.com/api/spot', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

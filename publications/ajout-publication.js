@@ -14,7 +14,7 @@ btnEnvoyer.addEventListener('click', async function(event) {
     console.log(data);
     console.log(localStorage.getItem('token'));
 
-    const reponse = await fetch(`http://localhost:3001/api/publication/`, {
+    const reponse = await fetch(`https://surfmate-backend.onrender.com/api/publication/`, {
         method: 'POST',
         headers: {
             //bearer token pour authentification

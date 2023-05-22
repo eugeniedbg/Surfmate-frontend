@@ -12,7 +12,7 @@ export function afficherAvis(avis, spotId) {
       const avisElement = document.createElement("div");
       avisElement.classList.add("avis-item");
       
-      const userReponse = await fetch(`http://localhost:3001/api/auth/${avisObj.userId}`);
+      const userReponse = await fetch(`https://surfmate-backend.onrender.com/api/auth/${avisObj.userId}`);
       const user = await userReponse.json();
       const auteurElement = document.createElement("p");
       auteurElement.innerText = "Utilisateur : " + user.pseudo;

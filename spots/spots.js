@@ -39,7 +39,7 @@ function afficherSpots(spots) {
         avisBouton.textContent = "Afficher les avis";
         avisBouton.addEventListener("click", async () => {
             const spotId = avisBouton.dataset.id;
-            const reponse = await fetch(`http://localhost:3001/api/avis?spot_id=${spotId}`);
+            const reponse = await fetch(`https://surfmate-backend.onrender.com/api/avis?spot_id=${spotId}`);
             const avis = await reponse.json();
             if (avisBouton.textContent === "Afficher les avis") {
                 afficherAvis(avis, spotId);

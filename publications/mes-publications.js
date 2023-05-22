@@ -1,4 +1,4 @@
-const reponse = await fetch(`http://localhost:3001/api/publication`)
+const reponse = await fetch(`https://surfmate-backend.onrender.com/api/publication`)
 const mesPublications = await reponse.json();
 
 const userId = localStorage.getItem('userId');
@@ -29,7 +29,7 @@ async function afficherMesPublications(mesPublications) {
 
 
             // Obtenir le pseudo de l'utilisateur
-            const reponse = await fetch(`http://localhost:3001/api/auth/${post.userId}`);
+            const reponse = await fetch(`https://surfmate-backend.onrender.com/api/auth/${post.userId}`);
             const utilisateur = await reponse.json();
             const pseudoElement = document.createElement("h2");
             pseudoElement.innerText = utilisateur.pseudo;
@@ -67,7 +67,7 @@ afficherMesPublications(mesPublications);
 //         console.log("click");
 //         event.preventDefault();
 //         const postId = mesPublications[i]._id;
-//         const reponse = await fetch(`http://localhost:3001/api/publication/${postId}`, {
+//         const reponse = await fetch(`https://surfmate-backend.onrender.com/api/publication/${postId}`, {
 //             method: "DELETE",
 //             headers: {
 //                 "Content-Type": "application/json",
@@ -95,7 +95,7 @@ sectionPublications.addEventListener("click", async function(event) {
         const postId = publicationElement.dataset.id;
         console.log(postId);
 
-        const response = await fetch(`http://localhost:3001/api/publication/${postId}`, {
+        const response = await fetch(`https://surfmate-backend.onrender.com/api/publication/${postId}`, {
             method: "DELETE",
             headers: {
                 //Bearer token

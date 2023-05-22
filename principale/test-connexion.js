@@ -16,7 +16,7 @@ async function afficherPublications(publications) {
         const publicationElement = document.createElement("post");
         
         // Obtenir le pseudo de l'utilisateur
-        const reponse = await fetch(`http://localhost:3001/api/auth/${post.userId}`);
+        const reponse = await fetch(`https://surfmate-backend.onrender.com/api/auth/${post.userId}`);
         const utilisateur = await reponse.json();
         const pseudoElement = document.createElement("h2");
         pseudoElement.innerText = utilisateur.pseudo;

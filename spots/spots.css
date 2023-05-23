@@ -12,7 +12,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 40%;
+    /* min-width: 20%; */
+    max-width: 60%;
     margin: auto;
     margin-top: 1em;
     margin-bottom: 1em;
@@ -55,3 +56,12 @@ h1, h2 {
   justify-content: flex-end;
 }
 
+/* Quand la largeur del'écran est inférieure à 330px, on passe en mode portrait */
+@media screen and (max-width: 376px) {
+  .imagedefond {
+    background-position: center;
+  }
+  .spots lieu, .creneaux reservation, .publications post, .mesPublications post, .mesCreneaux reservation {
+    max-width: 100%;
+  }
+}

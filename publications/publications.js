@@ -1,4 +1,4 @@
-import { afficherNavBarBoutons, responsiveNavBar } from "../app.js";
+import { afficherNavBarBoutons, responsiveNavBar, storePreviousPage } from "../app.js";
 
 const reponse = await fetch('https://surfmate-backend.onrender.com/api/publication/?populate=userId')
 const publications = await reponse.json();
@@ -60,6 +60,7 @@ export function redirectButton() {
     if (token) {
         window.location.href = '../publications/ajout-publication.html';
     } else {
+        storePreviousPage();
         window.location.href = '../user/Connexion-Inscription.html';
     }
 }

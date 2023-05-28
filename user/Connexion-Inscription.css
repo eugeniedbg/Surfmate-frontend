@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 .imagedefond{
     background: url("/images/vagues-modified.jpg") no-repeat center;
     background-color: rgb(255, 255, 255);
@@ -8,6 +10,9 @@
     height: 100%;
   }
 
+#loginErreur {
+    color: white;
+}
 
 /* Connexion/Inscription */
 button.btn {

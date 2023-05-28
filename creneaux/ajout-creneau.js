@@ -39,11 +39,6 @@ spotsMap.forEach((spot, key) => {
 const spot = document.getElementById("spots-liste");
 
 
-
-
-
-
-
 //Envoyer les données au serveur
 const boutonSubmit = document.getElementById("submitCreneau");
 boutonSubmit.addEventListener("click", async function (event) {

@@ -241,6 +241,11 @@ header{
     margin-block-start: 0em;
     margin-block-end: 0em;
 } */
+
+h2.titre_haut {
+    color: white;
+}
+
 h2 {
     margin-top: 1rem;
     padding-top: 0.5em;

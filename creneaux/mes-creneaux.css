@@ -1,0 +1,70 @@
+body#imagefondMonCompte {
+    margin-top: 0;
+    top: 0;
+}
+
+
+.retour {
+    top: 0;
+    left: 0;
+    font-family: Poppins, sans-serif;
+    font-size: 0.8em;
+    margin: 1em;
+    width: auto;
+    display: block;
+    padding: 0.8em;
+    text-align: center;
+    border: 0.15em solid white;
+    border-radius: 2em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-weight: 300;
+    color: white;
+    transition: all 0.2s;
+    background-color: transparent;
+    text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+    text-transform: uppercase;
+    backdrop-filter: blur(7px);
+  }
+  
+  .retour:hover {
+    border-color: rgba(255, 255, 255, 0);
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+    cursor: pointer;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5em;
+    padding: 0.5em;
+  
+  }
+  
+  .modifyElement {
+    position: absolute;
+    margin: 0.5em;
+    width: 2.2em;
+    height: 2.2em;
+    top: 0;
+    right: 2.5em;
+    z-index: 2;
+    cursor: pointer;
+  }
+  
+  .deleteElement {
+    position: absolute;
+    margin: 0.5em;
+    width: 2em;
+    height: 2em;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    cursor: pointer;
+  }
+  

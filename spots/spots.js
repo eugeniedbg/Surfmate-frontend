@@ -2,10 +2,15 @@ import { afficherNavBarBoutons, responsiveNavBar } from "../app.js";
 import { afficherAvis, masquerAvis } from "./avisSpot.js";
 
 
-const reponse = await fetch('https://surfmate-backend.onrender.com/api/spot/');
-const spots = await reponse.json();
+const reponse = fetch('https://surfmate-backend.onrender.com/api/spot/');
+reponse.then(async (reponse) => {
+    const spots = await reponse.json();
+    console.log(spots);
+    afficherSpots(spots);
+});
 
-function afficherSpots(spots) {
+
+async function afficherSpots(spots) {
     for (let i = 0; i < spots.length; i++) {
         const lieu = spots[i];
         const sectionSpots = document.querySelector(".spots");
@@ -13,7 +18,7 @@ function afficherSpots(spots) {
         const spotElement = document.createElement("lieu");
 
         const nomElement = document.createElement("h2");
-        nomElement.innerText = "Spot : " + lieu.nom;
+        nomElement.innerText = lieu.nom;
 
         const villeElement = document.createElement("p");
         villeElement.innerText = "ville : " + lieu.ville;
@@ -77,7 +82,7 @@ function afficherSpots(spots) {
     }
 }
 
-afficherSpots(spots);
+// afficherSpots(spots);
 
 
 

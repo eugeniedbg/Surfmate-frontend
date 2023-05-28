@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
     margin: 0;
@@ -18,8 +19,9 @@
   }
 
 .creneaux .creneauxArchives {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  font-family: Poppins, sans-serif;
 }
 
 /* Créneaux archivés */
@@ -37,6 +39,7 @@
     border: 0.16em solid rgba(255, 255, 255, 0.2);
     border-radius: 1.5em;
     text-decoration: none;
+    font-family: Poppins, sans-serif;
     font-weight: 300;
     color: black;
     transition: all 0.2s;
@@ -59,36 +62,37 @@
     padding: auto;
   }
 
-h2 {
-    margin: auto;
-    border: 2px solid #f1f1f1;
-    outline: none;
-    background: transparent;
-    backdrop-filter: blur(2px);
-    font-size: 30px;
-    padding: 20px;
-    width: 300px;
-    color: #f1f1f1;
-    /* cursor: pointer; */
+.titre_creneaux {
+  margin: auto;
+  border: 2px solid #f1f1f1;
+  outline: none;
+  background: transparent;
+  backdrop-filter: blur(2px);
+  font-size: 30px;
+  padding: 20px;
+  width: 300px;
+  color: #f1f1f1;
 }
 
 .hidden {
-    display: none;
-  }
+  display: none;
+}
 
 h2#toggleArchivesButton {
-    /* margin-left: auto;
-    margin-right: auto; */
-    bottom: 10em;
-    margin-bottom: 1em;
-    border: 2px solid #f1f1f1;
-    outline: none;
-    background: transparent;
-    font-size: 30px;
-    padding: 20px;
-    min-width: 40%;
-    color: #f1f1f1;
-    cursor: pointer;
+  margin: auto;
+  background: transparent;
+  backdrop-filter: blur(2px);
+  width: 300px;
+  bottom: 10em;
+  margin-bottom: 1em;
+  border: 2px solid #f1f1f1;
+  outline: none;
+  background: transparent;
+  font-size: 30px;
+  padding: 20px;
+  min-width: 40%;
+  color: #f1f1f1;
+  cursor: pointer;
 }
 
 html {
@@ -103,6 +107,34 @@ html {
     background-color: #ccc;
 }
 
+
+.pseudoSection {
+  margin: 0.5em;
+  font-weight: bold;
+}
+
+.spotSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0.5em;
+  padding: 0.5em;
+  border: 0.16em solid rgba(255, 255, 255, 0.2);
+  /* border-radius: 1.5em; */
+  text-decoration: none;
+  font-family: Poppins, sans-serif;
+  font-weight: 300;
+  color: black;
+  transition: all 0.2s;
+  /* background-color: rgba(255, 255, 255, 0.2); */
+  /* background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)); */
+  /* text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35); */
+  /* backdrop-filter: blur(2px); */
+
+}
+
 @media screen and (max-width: 376px) {
     .imagedefond {
       background-position: center;
@@ -111,3 +143,7 @@ html {
       max-width: 100%;
     }
   }
+
+
+  
+  

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +9,7 @@
 }
 
 
-.spots lieu, .creneaux reservation, .publications post, .mesPublications post, .mesCreneaux reservation {
+.spots lieu, .creneaux reservation, .publications post, .mesPublications post, .reservation {
     display : flex;
     flex-direction: column;
     justify-content: center;
@@ -22,6 +24,7 @@
     border: 0.16em solid rgba(255, 255, 255, 0.2);
     border-radius: 1.5em;
     text-decoration: none;
+    font-family: Poppins, sans-serif;
     font-weight: 300;
     color: black;
     transition: all 0.2s;
@@ -35,6 +38,7 @@
 h1, h2 {
     text-align: center;
     color: black;
+    font-family: Poppins, sans-serif;
 }
 
 
@@ -54,10 +58,11 @@ h1, h2 {
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
+  font-family: Poppins, sans-serif;
 }
 
 /* Quand la largeur del'écran est inférieure à 330px, on passe en mode portrait */
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 455px) {
   .imagedefond {
     background-position: center;
   }

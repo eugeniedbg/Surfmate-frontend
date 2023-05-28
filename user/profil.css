@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 html {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+  width: 100%;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  height: 100%;
+}
+
+header {
+  top: 0;
 }
 
 body {
@@ -12,11 +18,45 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    /* height: 100vh; */
+    overflow: hidden;
+}
+
+.retour {
+  top: 0;
+  left: 0;
+  font-family: Poppins, sans-serif;
+  font-size: 0.8em;
+  margin: 1em;
+  width: auto;
+  display: block;
+  padding: 0.8em;
+  text-align: center;
+  border: 0.15em solid white;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 300;
+  color: white;
+  transition: all 0.2s;
+  background-color: transparent;
+  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+  text-transform: uppercase;
+  backdrop-filter: blur(7px);
+}
+
+.retour:hover {
+  border-color: rgba(255, 255, 255, 0);
+  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+  cursor: pointer;
 }
 
 /*blurry buttons*/
 .blurryButton {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Poppins, sans-serif;
     font-size: 0.8em;
     margin: 1em;
     width: auto;
@@ -35,8 +75,9 @@ body {
     text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
     box-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
     text-transform: uppercase;
+    backdrop-filter: blur(7px);
     
-    
+        
   }
   
   .blurryButton:hover {
@@ -57,4 +98,5 @@ body {
     text-align: center; 
     padding: auto;
     width: 100%;
+    height: 100vh;
   } 

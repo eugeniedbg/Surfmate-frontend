@@ -50,7 +50,6 @@ boutonConnexion.addEventListener("click", async function (event) {
     const email = document.getElementById("emailLogin").value;
     const password = document.getElementById("passwordLogin").value;
     const hashedPassword = CryptoJS.SHA256(password).toString();
-    console.log(email, hashedPassword);
     try {
         const response = await fetch('https://surfmate-backend.onrender.com/api/auth/login', {
             method: 'POST',
@@ -62,6 +61,9 @@ boutonConnexion.addEventListener("click", async function (event) {
         
         if (!response.ok) {
             const error = await response.json();
+            // Afficher l'erreur à l'utilisateur
+            const errorElement = document.getElementById('loginErreur');
+            errorElement.innerText = error.message;
             console.log(error);
         } else {
             const res = await response.json();
@@ -105,7 +107,6 @@ pseudo.addEventListener("input", function (event) {
 );
 
 pseudo.addEventListener("blur", async function (event) {
-    console.log("blur");
     if (await checkPseudo()) {
         pseudoErreur.style.display = "none";
         pseudoValide.style.display = "block";
@@ -169,7 +170,6 @@ boutonInscription.addEventListener("click", async function (event) {
         return;
     }
     const hashedPassword = CryptoJS.SHA256(password.value).toString();
-    console.log(hashedPassword);
 
     const data = {
         pseudo: pseudo.value,

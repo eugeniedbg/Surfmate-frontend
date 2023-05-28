@@ -52,6 +52,7 @@ async function afficherCreneaux(creneaux) {
         const spotReponse = await fetch(`https://surfmate-backend.onrender.com/api/spot/${spotId}`);
         const spot = await spotReponse.json();
         const spotElement = document.createElement('spot');
+        spotElement.classList.add('spotSection');
         const nomElement = document.createElement('h3');
         nomElement.innerText = "Spot : " + spot.nom;
         const villeElement = document.createElement('p');
@@ -71,6 +72,7 @@ async function afficherCreneaux(creneaux) {
         const userReponse = await fetch(`https://surfmate-backend.onrender.com/api/auth/${userIdElement}`);
         const user = await userReponse.json();
         const pseudoElement = document.createElement('h3');
+        pseudoElement.classList.add('pseudoSection');
         pseudoElement.innerText = user.pseudo;
 
 
@@ -88,13 +90,13 @@ async function afficherCreneaux(creneaux) {
         
 
         sectionCreneaux.appendChild(creneauElement);
+        creneauElement.appendChild(pseudoElement);
+        creneauElement.appendChild(dateElement);
         creneauElement.appendChild(spotElement);
         spotElement.appendChild(nomElement);
         spotElement.appendChild(villeElement);
         spotElement.appendChild(paysElement);
         spotElement.appendChild(noteElement);
-        creneauElement.appendChild(pseudoElement);
-        creneauElement.appendChild(dateElement);
 
         // Si la date de réservation est passée
         if (reservationDate < currentDate) {

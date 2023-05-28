@@ -16,16 +16,11 @@ async function afficherMesPublications(mesPublications) {
             const publicationElement = document.createElement("post");
             publicationElement.dataset.id = mesPublications[i]._id;
             
-            // const deleteElement = document.createElement("button");
-            // deleteElement.classList.add("deleteElement");
             const deleteElement = document.createElement("img");
             deleteElement.classList.add("deleteElement");
 
             // Définir l'attribut src de l'image avec l'URL de l'image
             deleteElement.src = "../images/bin2.png";
-
-            // Ajouter l'image en tant qu'enfant du bouton
-            // deleteElement.appendChild(image);
 
 
             // Obtenir le pseudo de l'utilisateur

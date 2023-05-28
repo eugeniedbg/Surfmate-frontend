@@ -1,11 +1,32 @@
+// export function redirectToPreviousPage() {
+//     // Récupérer l'URL précédente à partir de l'historique du navigateur
+//     var previousPage = document.referrer;
+//     console.log(previousPage);
+  
+//     // Rediriger vers l'URL précédente
+//     window.location.href = previousPage;
+// }
+
 export function redirectToPreviousPage() {
-    // Récupérer l'URL précédente à partir de l'historique du navigateur
-    var previousPage = document.referrer;
+    // Récupérer l'URL précédente à partir du stockage local
+    var previousPage = localStorage.getItem("previousPage");
     console.log(previousPage);
   
-    // Rediriger vers l'URL précédente
-    window.location.href = previousPage;
-}
+    // Rediriger vers l'URL précédente ou une page par défaut si le stockage local est vide
+    if (previousPage) {
+      window.location.href = previousPage;
+    } else {
+      window.location.href = "/default-page";
+    }
+  }
+  
+  // Stocker l'URL précédente dans le stockage local avant de passer à la page de connexion
+export function storePreviousPage() {
+    var currentPage = window.location.href;
+    localStorage.setItem("previousPage", currentPage);
+  }
+  
+
 
 export function afficherNavBarBoutons() {
     const token = localStorage.getItem('token');
@@ -44,6 +65,7 @@ export function afficherNavBarBoutons() {
         listItemConnexion.appendChild(boutonConnexion); 
 
         boutonConnexion.addEventListener('click', function() {
+            storePreviousPage();
             window.location.href = '../user/Connexion-Inscription.html';
         });
 

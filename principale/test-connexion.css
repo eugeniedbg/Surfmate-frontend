@@ -197,10 +197,6 @@ header{
 }
 
 
-/*PUBLICATION POST*/
-/* .publications {
-    margin-top: -3em;
-} */
 
 .publications post {
     display : flex;
@@ -226,7 +222,7 @@ header{
     backdrop-filter: blur(2px);
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 455px) {
     .publications post {
       max-width: 100%;
     }

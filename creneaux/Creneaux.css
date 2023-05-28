@@ -64,13 +64,12 @@
 
 .titre_creneaux {
   margin: auto;
-  border: 2px solid #f1f1f1;
   outline: none;
   background: transparent;
   backdrop-filter: blur(2px);
   font-size: 30px;
   padding: 20px;
-  width: 300px;
+  width: auto;
   color: #f1f1f1;
 }
 

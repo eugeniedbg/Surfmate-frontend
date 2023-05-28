@@ -9,8 +9,12 @@ async function afficherMesPublications(mesPublications) {
         const dateB = new Date(b.date);
         return dateB - dateA;
     });
+
+    let compteur = 0;
+
     for (let i = 0; i < mesPublications.length; i++) {
         if (mesPublications[i].userId === userId) {
+            compteur++;
             const post = mesPublications[i];
             const sectionPublications = document.querySelector(".mesPublications");
             const publicationElement = document.createElement("post");
@@ -51,31 +55,24 @@ async function afficherMesPublications(mesPublications) {
             publicationElement.appendChild(commentaireElement);
         }
     }
+    if (compteur === 0) {
+        const sectionPublications = document.querySelector(".mesPublications");
+        const publicationElement = document.createElement("post");
+        const commentaireElement = document.createElement("p");
+        commentaireElement.innerText = "Vous n'avez pas encore publié de post";
+        sectionPublications.appendChild(publicationElement);
+        publicationElement.appendChild(commentaireElement);
+    } else {
+        const sectionPublications = document.querySelector(".mesPublications");
+        const publicationElement = document.createElement("post");
+        const commentaireElement = document.createElement("p");
+        commentaireElement.innerText = "Vous avez publié " + compteur + " post(s)";
+        sectionPublications.appendChild(publicationElement);
+        publicationElement.appendChild(commentaireElement);
+    }
 };
 
 afficherMesPublications(mesPublications);
-
-// Supprimer une publication
-// const deleteElement = document.querySelectorAll(".deleteElement");
-// for (let i = 0; i < deleteElement.length; i++) {
-//     deleteElement[i].addEventListener("click", async function (event) {
-//         console.log("click");
-//         event.preventDefault();
-//         const postId = mesPublications[i]._id;
-//         const reponse = await fetch(`https://surfmate-backend.onrender.com/api/publication/${postId}`, {
-//             method: "DELETE",
-//             headers: {
-//                 "Content-Type": "application/json",
-//             },
-//         });
-//         const body = await reponse.json();
-//         if (reponse.ok) {
-//             window.location.href = "mes-publications.html";
-//         } else {
-//             alert(body.message);
-//         }
-//     });
-// }
 
 // Supprimer une publication
 const sectionPublications = document.querySelector(".mesPublications");

@@ -10,8 +10,11 @@ async function afficherMesCreneaux(mesCreneaux) {
         return dateA - dateB;
     });
 
+    let compteur = 0;
+
     for (let i = 0; i < mesCreneaux.length; i++) {
         if (mesCreneaux[i].userId === userId) {
+            compteur++;
             const reservation = mesCreneaux[i];
             const sectionCreneaux = document.querySelector('.mesCreneaux');
             const creneauElement = document.createElement('div');
@@ -83,6 +86,23 @@ async function afficherMesCreneaux(mesCreneaux) {
             spotElement.appendChild(noteElement);
             
         }
+    }
+    if (compteur === 0) {
+        const sectionCreneaux = document.querySelector('.mesCreneaux');
+        const creneauElement = document.createElement('div');
+        creneauElement.classList.add('reservation');
+        const messageElement = document.createElement('h3');
+        messageElement.innerText = "Vous n'avez pas encore de créneau de réservé";
+        sectionCreneaux.appendChild(creneauElement);
+        creneauElement.appendChild(messageElement);
+    } else {
+        const sectionCreneaux = document.querySelector('.mesCreneaux');
+        const creneauElement = document.createElement('div');
+        creneauElement.classList.add('reservation');
+        const messageElement = document.createElement('h3');
+        messageElement.innerText = "Vous avez " + compteur + " créneau(x) de réservé(s)";
+        sectionCreneaux.appendChild(creneauElement);
+        creneauElement.appendChild(messageElement);
     }
 
 }

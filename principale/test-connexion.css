@@ -196,8 +196,6 @@ header{
     
 }
 
-
-
 .publications post {
     display : flex;
     flex-direction: column;
@@ -227,16 +225,6 @@ header{
       max-width: 100%;
     }
   }
-
-/*Toutes les publications, titre*/
-/* h1 {
-    padding: 1em;
-    margin-top: 1rem;
-    text-align: center;
-    color: white;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-} */
 
 h2.titre_haut {
     color: white;

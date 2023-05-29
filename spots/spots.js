@@ -10,7 +10,6 @@ reponse.then(async (reponse) => {
 
 
 async function afficherSpots(spots) {
-    await recalculerNoteMoyenne(spots);
 
     for (let i = 0; i < spots.length; i++) {
         const lieu = spots[i];
@@ -127,34 +126,5 @@ export function afficherBoutonAjoutSpot() {
 
 afficherBoutonAjoutSpot();
 
-async function recalculerNoteMoyenne(spots) {
-    // On récupère tous les avis
-    const reponse = await fetch('https://surfmate-backend.onrender.com/api/avis');
-    const avis = await reponse.json();
-
-    // On parcourt tous les spots
-    for (let i = 0; i < spots.length; i++) {
-        const spot = spots[i];
-        let noteMoyenne = 0;
-        let nbAvis = 0;
-        // On parcourt tous les avis
-        for (let j = 0; j < avis.length; j++) {
-            const avisCourant = avis[j];
-            // Si l'avis concerne le spot courant
-            if (avisCourant.spot_id === spot._id) {
-                // On ajoute la note de l'avis à la note moyenne
-                noteMoyenne += avisCourant.note;
-                nbAvis++;
-            }
-        }
-        // On calcule la note moyenne
-        if (nbAvis > 0) {
-            noteMoyenne /= nbAvis;
-            noteMoyenne = Math.round(noteMoyenne * 10) / 10;
-        }
-        // On met à jour le spot avec la note moyenne
-        spot.noteMoyenne = noteMoyenne;
-    }
-}
 
 

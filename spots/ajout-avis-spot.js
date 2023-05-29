@@ -60,7 +60,7 @@ export async function submitForm(event) {
         alert(resultat.error);
     } else {
         alert('Votre avis a bien été ajouté');
-        window.location.href = '../spots/spots.html';
+        window.location.href = '../spots/Spots.html';
     }
 
 }

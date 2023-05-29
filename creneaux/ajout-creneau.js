@@ -71,7 +71,7 @@ boutonSubmit.addEventListener("click", async function (event) {
         method: 'POST',
         headers: {
           //bearer token pour authentification
-          'Authorization': 'Bearer' + localStorage.getItem('token'),
+          'Authorization': 'Bearer ' + localStorage.getItem('token'),
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)

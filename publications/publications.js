@@ -1,4 +1,4 @@
-import { afficherNavBarBoutons, responsiveNavBar, storePreviousPage } from "../app.js";
+import { afficherNavBarBoutons, responsiveNavBar, storePreviousPage, isTokenExpired, clearToken } from "../app.js";
 
 const reponse = await fetch('https://surfmate-backend.onrender.com/api/publication/?populate=userId')
 const publications = await reponse.json();
@@ -45,8 +45,6 @@ async function afficherPublications(publications) {
 
 afficherPublications(publications);
 
-// afficherNavBarBoutons();
-
 
 afficherNavBarBoutons();
 
@@ -58,7 +56,13 @@ btnAjoutPublication.addEventListener('click', redirectButton);
 export function redirectButton() {
     const token = localStorage.getItem('token');
     if (token) {
-        window.location.href = '../publications/ajout-publication.html';
+        if (isTokenExpired()) {
+            clearToken(); // Efface le token expiré du localStorage
+            storePreviousPage();
+            window.location.href = '../user/Connexion-Inscription.html';
+          } else {
+            window.location.href = '../publications/ajout-publication.html';
+          }
     } else {
         storePreviousPage();
         window.location.href = '../user/Connexion-Inscription.html';

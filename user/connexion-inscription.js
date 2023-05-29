@@ -67,8 +67,10 @@ boutonConnexion.addEventListener("click", async function (event) {
             console.log(error);
         } else {
             const res = await response.json();
+            console.log(res);
             localStorage.setItem('token', res.token);
             localStorage.setItem('userId', res.userId);
+            localStorage.setItem('expirationDate', res.expirationDate);
             redirectToPreviousPage();
         }
     } catch (err) {
@@ -79,7 +81,6 @@ boutonConnexion.addEventListener("click", async function (event) {
 
 // Inscription
 
-//const reponse = await fetch('https://surfmate-backend.onrender.com/api/spot/');
 
 //Vérifier que le psuedo n'est pas déjà utilisé
 const pseudo = document.getElementById("pseudo");

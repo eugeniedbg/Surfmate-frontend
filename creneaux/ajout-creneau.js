@@ -44,6 +44,7 @@ const boutonSubmit = document.getElementById("submitCreneau");
 boutonSubmit.addEventListener("click", async function (event) {
 
     event.preventDefault();
+    const userId = localStorage.getItem('userId');
 
     const inputDate = document.getElementById('datetime').value;
 
@@ -64,14 +65,16 @@ boutonSubmit.addEventListener("click", async function (event) {
     const data = {
         date: isoDate,
         spotId: spots.value,
-        userId: localStorage.getItem("userId")
+        userId: userId
     };
     const reponse = await fetch('https://surfmate-backend.onrender.com/api/creneau', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+          //bearer token pour authentification
+          'Authorization': 'Bearer' + localStorage.getItem('token'),
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(data)
     });
     const resultat = await reponse.json();
     if (resultat.error) {

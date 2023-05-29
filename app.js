@@ -1,11 +1,3 @@
-// export function redirectToPreviousPage() {
-//     // Récupérer l'URL précédente à partir de l'historique du navigateur
-//     var previousPage = document.referrer;
-//     console.log(previousPage);
-  
-//     // Rediriger vers l'URL précédente
-//     window.location.href = previousPage;
-// }
 
 export function redirectToPreviousPage() {
     // Récupérer l'URL précédente à partir du stockage local
@@ -72,6 +64,9 @@ export function afficherNavBarBoutons() {
         boutons.appendChild(listItemConnexion);
 
     }
+    if (isTokenExpired()) {
+      clearToken(); // Utilisation de la fonction isTokenExpired() pour vérifier si le token est expiré et clearToken() pour effacer le token du localStorage si c'est le cas
+    }
 }
 
 export function responsiveNavBar() {
@@ -92,25 +87,16 @@ export function responsiveNavBar() {
     }) 
 }
 
-// Fonction pour vérifier si le token a expiré
+// Fonction pour vérifier si le token est expiré
 export function isTokenExpired() {
-    const token = localStorage.getItem('token');
-    if (token) {
-      const tokenParts = token.split('.');
-      if (tokenParts.length === 3) {
-        const payload = JSON.parse(atob(tokenParts[1]));
-        const expirationTime = payload.exp * 1000; // Convertir la date d'expiration en millisecondes
-        const currentTime = new Date().getTime();
-        return currentTime > expirationTime;
-      }
-    }
-    return true; // Si le token est manquant ou invalide, considérer qu'il a expiré
+  const expirationDate = localStorage.getItem('expirationDate');
+  if (!expirationDate) {
+    return true; // Le token n'existe pas ou n'a pas de date d'expiration
   }
-  
-  // Fonction pour gérer l'expiration du token
-export function handleTokenExpiration() {
-    // Effacer le token et effectuer d'autres actions nécessaires (déconnexion, redirection, etc.)
-    localStorage.clear();
-    // Rediriger l'utilisateur vers la page de connexion ou effectuer d'autres actions appropriées
-    window.location.href = "../user/Connexion-Inscription.html";
+  return new Date() > new Date(expirationDate);
+}
+
+// Fonction pour effacer le token et ses informations d'expiration de localStorage
+export function clearToken() {
+  localStorage.clear();
 }

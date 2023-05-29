@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avis Spot</title>
+    <link rel="stylesheet" href="../spots/ajout-avis-spot.css">
+    <link rel="stylesheet" href="/spots/spots.css">
+</head>
+<body class="imagedefond">
+    <form id="avis-form">
+        <div class="form-group">
+            <label for="note">Note</label>
+            <input type="hidden" class="form-control" id="note" placeholder="Note" readonly>
+            <div id="note-buttons">
+              <button type="button" class="note-button" data-value="0">0</button>
+              <button type="button" class="note-button" data-value="1">1</button>
+              <button type="button" class="note-button" data-value="2">2</button>
+              <button type="button" class="note-button" data-value="3">3</button>
+              <button type="button" class="note-button" data-value="4">4</button>
+              <button type="button" class="note-button" data-value="5">5</button>
+              <button type="button" class="note-button" data-value="6">6</button>
+              <button type="button" class="note-button" data-value="7">7</button>
+              <button type="button" class="note-button" data-value="8">8</button>
+              <button type="button" class="note-button" data-value="9">9</button>
+              <button type="button" class="note-button" data-value="10">10</button>
+            </div>
+          </div>
+      
+        <div class="form-group">
+          <label for="commentaire">Commentaire</label>
+          <textarea name="commentaire" class="form-control" id="commentaire" rows="5" cols="40" placeholder="Commentaire"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" value="Envoyer">Envoyer</button>
+    </form> 
+    
+    <script type="module" src="/spots/ajout-avis-spot.js"></script>
+</body>
+</html>

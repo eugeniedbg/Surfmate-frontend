@@ -1,7 +1,10 @@
-import { afficherNavBarBoutons, responsiveNavBar } from "../app.js";
+import { afficherNavBarBoutons, responsiveNavBar, storePreviousPage, isTokenExpired, clearToken } from "../app.js";
 
-const reponse = await fetch('https://surfmate-backend.onrender.com/api/creneau');
-const creneaux = await reponse.json()
+const reponse = fetch('https://surfmate-backend.onrender.com/api/creneau');
+reponse.then(async (reponse) => {
+    const creneaux = await reponse.json();
+    afficherCreneaux(creneaux);
+});
 
 
 const toggleArchivesButton = document.getElementById('toggleArchivesButton');
@@ -34,11 +37,7 @@ async function afficherCreneaux(creneaux) {
         const reservation = creneaux[i];
 
         const reservationDate = new Date(reservation.date);
-        
-        // Si la date de réservation est passée
-        // if (reservationDate < currentDate) {
-        //     continue; // Passer à l'itération suivante si la condition est vérifiée
-        // }
+    
 
 
         const sectionCreneaux = document.querySelector('.creneaux');
@@ -101,42 +100,28 @@ async function afficherCreneaux(creneaux) {
         // Si la date de réservation est passée
         if (reservationDate < currentDate) {
             sectionCreneauxArchives.appendChild(creneauElement);
-            // sectionCreneauxArchives.appendChild(creneauElement);
-            // creneauElement.classList.add('hidden');
-            // creneauElement.appendChild(spotElement);
-            // spotElement.appendChild(nomElement);
-            // spotElement.appendChild(villeElement);
-            // spotElement.appendChild(paysElement);
-            // spotElement.appendChild(noteElement);
-            // creneauElement.appendChild(pseudoElement);
-            // creneauElement.appendChild(dateElement);
         }
     }
 }
 
-afficherCreneaux(creneaux);
+const btnAjoutCreneau = document.getElementById('btnAjoutCreneau');
+btnAjoutCreneau.addEventListener('click', redirectButton);
 
-
-export function afficherBoutonAjoutCreneau() {
+export function redirectButton() {
     const token = localStorage.getItem('token');
     if (token) {
-        const boutons = document.querySelector('.boutonAlignement');
-
-        const boutonAjouterCreneau = document.createElement('button');
-        boutonAjouterCreneau.classList.add('blurryButton');
-        boutonAjouterCreneau.innerText = 'Ajouter un créneau';
-
-        boutonAjouterCreneau.addEventListener('click', function() {
+        if (isTokenExpired()) {
+            clearToken(); // Efface le token expiré du localStorage
+            storePreviousPage();
+            window.location.href = '../user/Connexion-Inscription.html';
+          } else {
             window.location.href = '../creneaux/Ajout-creneau.html';
-        });
-
-        boutons.appendChild(boutonAjouterCreneau);
-    } else { 
-        return
+          }
+    } else {
+        storePreviousPage();
+        window.location.href = '../user/Connexion-Inscription.html';
     }
 }
-
-afficherBoutonAjoutCreneau();
 
 
 afficherNavBarBoutons();

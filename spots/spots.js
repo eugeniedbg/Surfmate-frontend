@@ -1,16 +1,17 @@
-import { afficherNavBarBoutons, responsiveNavBar } from "../app.js";
+import { afficherNavBarBoutons, responsiveNavBar, isTokenExpired, clearToken } from "../app.js";
 import { afficherAvis, masquerAvis } from "./avisSpot.js";
 
 
 const reponse = fetch('https://surfmate-backend.onrender.com/api/spot/');
 reponse.then(async (reponse) => {
     const spots = await reponse.json();
-    console.log(spots);
     afficherSpots(spots);
 });
 
 
 async function afficherSpots(spots) {
+    await recalculerNoteMoyenne(spots);
+
     for (let i = 0; i < spots.length; i++) {
         const lieu = spots[i];
         const sectionSpots = document.querySelector(".spots");
@@ -59,8 +60,24 @@ async function afficherSpots(spots) {
         ajoutAvisBouton.dataset.id = lieu._id;
         ajoutAvisBouton.textContent = "Ajouter un avis";
         ajoutAvisBouton.addEventListener("click", async () => {
+            //Vérifier si l'utilisateur est connecté et que le token n'est pas expiré, sinon le rediriger vers la page de connexion
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = '../user/Connexion-Inscription.html';
+            } else {
+                if (isTokenExpired()) {
+                    clearToken(); // Utilisation de la fonction isTokenExpired() pour vérifier si le token est expiré et clearToken() pour effacer le token du localStorage si c'est le cas
+                    window.location.href = '../user/Connexion-Inscription.html';
+                  } else {
+                    const spotId = ajoutAvisBouton.dataset.id;
+                    window.location.href = `./ajout-avis-spot.html?spot_id=${spotId}`;
+                  }
+            }
+
+
+
             const spotId = ajoutAvisBouton.dataset.id;
-            window.location.href = `./ajout-avis.html?spot_id=${spotId}`;
+            window.location.href = `./ajout-avis-spot.html?spot_id=${spotId}`;
         });
 
 
@@ -82,7 +99,6 @@ async function afficherSpots(spots) {
     }
 }
 
-// afficherSpots(spots);
 
 
 
@@ -110,5 +126,35 @@ export function afficherBoutonAjoutSpot() {
 }
 
 afficherBoutonAjoutSpot();
+
+async function recalculerNoteMoyenne(spots) {
+    // On récupère tous les avis
+    const reponse = await fetch('https://surfmate-backend.onrender.com/api/avis');
+    const avis = await reponse.json();
+
+    // On parcourt tous les spots
+    for (let i = 0; i < spots.length; i++) {
+        const spot = spots[i];
+        let noteMoyenne = 0;
+        let nbAvis = 0;
+        // On parcourt tous les avis
+        for (let j = 0; j < avis.length; j++) {
+            const avisCourant = avis[j];
+            // Si l'avis concerne le spot courant
+            if (avisCourant.spot_id === spot._id) {
+                // On ajoute la note de l'avis à la note moyenne
+                noteMoyenne += avisCourant.note;
+                nbAvis++;
+            }
+        }
+        // On calcule la note moyenne
+        if (nbAvis > 0) {
+            noteMoyenne /= nbAvis;
+            noteMoyenne = Math.round(noteMoyenne * 10) / 10;
+        }
+        // On met à jour le spot avec la note moyenne
+        spot.noteMoyenne = noteMoyenne;
+    }
+}
 
 

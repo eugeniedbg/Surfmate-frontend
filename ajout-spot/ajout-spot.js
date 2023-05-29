@@ -118,7 +118,9 @@ boutonSubmit.addEventListener("click", async function (event) {
     const reponse = await fetch('https://surfmate-backend.onrender.com/api/spot', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+          //Bearer token
+          'Authorization': 'Bearer ' + localStorage.getItem('token'),
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(data),
     });

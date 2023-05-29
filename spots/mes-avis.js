@@ -1,5 +1,3 @@
-import { recalculerNoteMoyenne } from '../app.js';
-
 const reponse = await fetch(`https://surfmate-backend.onrender.com/api/avis`)
 const mesAvis = await reponse.json();
 
@@ -106,9 +104,6 @@ sectionAvis.addEventListener("click", async function(event) {
 
         const body = await response.json();
         if (response.ok) {
-            // Suppression réussie de l'avis
-            // Recalculer la note moyenne après la suppression
-            await recalculerNoteMoyenne(mesAvis[i].spotId);
             window.location.href = "mes-avis.html";
         } else {
             alert(body.message);

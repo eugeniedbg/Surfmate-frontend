@@ -1,4 +1,4 @@
-import { afficherNavBarBoutons, responsiveNavBar, isTokenExpired, clearToken } from "../app.js";
+import { afficherNavBarBoutons, responsiveNavBar, isTokenExpired, clearToken, storePreviousPage } from "../app.js";
 import { afficherAvis, masquerAvis } from "./avisSpot.js";
 
 
@@ -30,7 +30,7 @@ async function afficherSpots(spots) {
         if (lieu.noteMoyenne == null) {
             lieu.noteMoyenne = "Pas encore de note";
         } else {    
-            lieu.noteMoyenne = "note moyenne : " + lieu.noteMoyenne + "/10" ;
+            lieu.noteMoyenne = "note moyenne : " + lieu.noteMoyenne.toFixed(1) + "/10" ;
         }
         noteElement.innerText = lieu.noteMoyenne;
 
@@ -62,9 +62,11 @@ async function afficherSpots(spots) {
             //Vérifier si l'utilisateur est connecté et que le token n'est pas expiré, sinon le rediriger vers la page de connexion
             const token = localStorage.getItem('token');
             if (!token) {
+                storePreviousPage();
                 window.location.href = '../user/Connexion-Inscription.html';
             } else {
                 if (isTokenExpired()) {
+                    storePreviousPage();
                     clearToken(); // Utilisation de la fonction isTokenExpired() pour vérifier si le token est expiré et clearToken() pour effacer le token du localStorage si c'est le cas
                     window.location.href = '../user/Connexion-Inscription.html';
                   } else {
@@ -75,8 +77,8 @@ async function afficherSpots(spots) {
 
 
 
-            const spotId = ajoutAvisBouton.dataset.id;
-            window.location.href = `./ajout-avis-spot.html?spot_id=${spotId}`;
+            // const spotId = ajoutAvisBouton.dataset.id;
+            // window.location.href = `./ajout-avis-spot.html?spot_id=${spotId}`;
         });
 
 

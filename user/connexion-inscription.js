@@ -71,6 +71,7 @@ boutonConnexion.addEventListener("click", async function (event) {
             localStorage.setItem('token', res.token);
             localStorage.setItem('userId', res.userId);
             localStorage.setItem('expirationDate', res.expirationDate);
+            localStorage.setItem('isAdmin', res.isAdmin);
             redirectToPreviousPage();
         }
     } catch (err) {

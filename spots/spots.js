@@ -17,6 +17,28 @@ async function afficherSpots(spots) {
 
         const spotElement = document.createElement("lieu");
 
+        // Créer le bouton de suppression seulement si l'utilisateur est administrateur
+        const userId = localStorage.getItem('userId');
+        const token = localStorage.getItem('token');
+        if (token) {
+            const isAdmin = localStorage.getItem('isAdmin');
+            console.log(isAdmin);  
+            if (isAdmin === 'true') {
+
+                const deleteElement = document.createElement("img");
+                deleteElement.classList.add("deleteElement");
+                deleteElement.src = "../images/bin2.png";
+    
+                deleteElement.dataset.id = lieu._id;
+                deleteElement.addEventListener("click", async () => {
+                    const spotId = deleteElement.dataset.id;
+                    console.log(spotId);
+                    await supprimerSpot(spotId);
+                });
+                spotElement.appendChild(deleteElement);
+                }
+        }
+
         const nomElement = document.createElement("h2");
         nomElement.innerText = lieu.nom;
 
@@ -76,9 +98,6 @@ async function afficherSpots(spots) {
             }
 
 
-
-            // const spotId = ajoutAvisBouton.dataset.id;
-            // window.location.href = `./ajout-avis-spot.html?spot_id=${spotId}`;
         });
 
 
@@ -94,11 +113,10 @@ async function afficherSpots(spots) {
         spotElement.appendChild(noteElement);
         spotElement.appendChild(avis);
         spotElement.appendChild(divAvis);
-        // spotElement.appendChild(avisBouton);
-        // spotElement.appendChild(ajoutAvisBouton);
         sectionSpots.appendChild(spotElement);
     }
 }
+
 
 
 
@@ -127,6 +145,50 @@ export function afficherBoutonAjoutSpot() {
 }
 
 afficherBoutonAjoutSpot();
+
+//Supprimer un spot
+export async function supprimerSpot(spotId) {
+    const sectionSpots = document.querySelector(".spots");
+
+    sectionSpots.addEventListener("click", async function(event) {
+        if (event.target.classList.contains("deleteElement")) {
+            event.preventDefault();
+
+            const deleteElement = event.target;
+            const spotElement = deleteElement.parentElement;
+            // const spotId = spotElement.dataset.id;
+            const userId = localStorage.getItem('userId');
+            const response = fetch(`https://surfmate-backend.onrender.com/api/auth/${userId}`);
+                response.then(async (reponse) => {
+                    const user = await reponse.json();
+                    const isAdmin = user.isAdmin;
+                    localStorage.setItem('isAdmin', isAdmin);
+                });
+            const isAdmin = localStorage.getItem('isAdmin');
+
+            if (isAdmin === 'true') {
+                const reponse = await fetch(`https://surfmate-backend.onrender.com/api/spot/${spotId}`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    },
+                });
+                const body = await reponse.json();
+                if (reponse.ok) {
+                    spotElement.remove();
+                } else {
+                    alert(body.message);
+                }
+
+            } else {
+                return
+            }
+
+
+        }
+    });
+}
 
 
 
